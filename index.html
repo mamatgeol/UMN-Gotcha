@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>UMNGotcha</title>
+</head>
+<body>
+    <header>
+        <h1>UMNGotcha</h1>
+    </header>
+
+    <div class="mainpage">
+        <div class="main">
+            <div class="slideshow-container">
+                <div class="mySlides fade">
+                    <img id="char1" src="char 1 (select)/char 1 (select)_00000.png" style="width:500px">
+                </div>
+                
+                <div class="mySlides fade">
+                    <img id="char2" src="char 2 (select)/char 2 (select)_00000.png" style="width:500px">
+                </div>
+                
+            
+                <a class="arr prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="arr next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+            <center><input type="text" class="input" placeholder="PET NAME" required></center>
+            <center><a href="dapur.html"><button>Start Game</button></a></center>
+        </div>
+    </div>
+
+    <footer>
+        <h2>Made By</h2>
+        <p>Auzan, Dhawy, Daniel, Sidqi</p>
+    </footer>
+
+    <script src="./js/index.js"></script>
+    <script>
+
+        
+        let slideIndex = 1;
+        showSlides(slideIndex);
+    
+        function plusSlides(n) {
+              showSlides(slideIndex += n);
+        }
+    
+        function currentSlide(n) {
+              showSlides(slideIndex = n);
+        }
+    
+        function showSlides(n) {
+              let i;
+              let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+          }
+          for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";
+          dots[slideIndex-1].className += " active";
+        }
+      </script>
+</body>
+</html>
