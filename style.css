@@ -92,3 +92,8 @@ button {
   font-weight: 600;
   box-shadow: 5px 5px 0px 3px;
 }
+
+img {
+    width: 100%;
+    height: auto;
+}
