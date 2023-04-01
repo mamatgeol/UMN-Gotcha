@@ -11,14 +11,21 @@
     <img src="dapur/dapur_00000.png" width="100%">
 </body>
 <script>
-    const selectedChar = sessionStorage.getItem('selectedChar');
-const charImg = document.querySelector('.char-img');
+    const startButton = document.querySelector('button');
+const char1 = document.querySelector('.mySlides:nth-child(1) img');
+const char2 = document.querySelector('.mySlides:nth-child(2) img');
 
-if (selectedChar === 'char1') {
-    charImg.src = 'char 1 (dapur)/char 1 (dapur)_00000.png';
-} else {
-    charImg.src = 'char 2 (dapur)/char 2 (dapur)_00000.png';
-}
+startButton.addEventListener('click', () => {
+    // Pindah ke halaman dapur.html
+    window.location.href = 'dapur.html';
+
+    // Simpan karakter yang dipilih ke dalam session storage
+    if (char1.classList.contains('active')) {
+        sessionStorage.setItem('selectedChar', 'char1');
+    } else {
+        sessionStorage.setItem('selectedChar', 'char2');
+    }
+});
 
 </script>
 </html>
