@@ -158,14 +158,16 @@ button {
 .jam-digital{
 	text-align: center;
   display: inline-block;
+  border-radius: 4px;
+  background-color: black;
 }
-	
 .kotak{
 	width: 50px;
 	height: 50px;
 }
-
 .jam-digital p{
 	font-size: 30px;
+  color: white;
 	font-family: cursive;
 }
+
