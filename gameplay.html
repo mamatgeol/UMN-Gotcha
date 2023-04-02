@@ -37,17 +37,10 @@
                                     <p id="menit1"></p>
                                 </div>
                             </div>
+
                             <script>
                                 window.setTimeout("waktu_tamu()", 1000);
-                             
-                                function waktu_tamu() {
-                                    var waktu = new Date();
-                                    setTimeout("waktu_tamu()", 1);
-                                    document.getElementById("jam1").innerHTML = waktu.getMinutes();
-                                    document.getElementById("menit1").innerHTML = waktu.getSeconds();
-                                }
                             </script>
-                            
                             <img src="char1/char1.gif" width="450px">
                         </div>
                         <div class="btn">
@@ -73,16 +66,8 @@
                                 </div>
                             </div>
                             <script>
-                                window.setTimeout("waktu_dapur()", 1000);
-                             
-                                function waktu_dapur() {
-                                    var waktu = new Date();
-                                    setTimeout("waktu_dapur()", 1);
-                                    document.getElementById("jam2").innerHTML = waktu.getMinutes();
-                                    document.getElementById("menit2").innerHTML = waktu.getSeconds();
-                                }
+                                window.setTimeout("waktu_dapur()", 1000);   
                             </script>
-                            
                             <img src="char1/char1.gif" width="450px">
                         </div>
                         <div class="btn">
@@ -90,12 +75,10 @@
                         </div>
                     </div>
                 </div>
-                
                 <a class="arr prev" onclick="plusSlides(-1)">&#10094;</a>
                 <a class="arr next" onclick="plusSlides(1)">&#10095;</a>
             </div>
         </div>
-    </div>
 
     <script>
         let slideIndex = 1;
@@ -128,6 +111,20 @@
         function toggleOverlay() {
             const overlay = document.querySelector('.overlay');
             overlay.classList.toggle('active');
+        }         
+        
+        function waktu_tamu() {
+            var waktu = new Date();
+            setTimeout("waktu_tamu()", 1);
+            document.getElementById("jam1").innerHTML = waktu.getMinutes();
+            document.getElementById("menit1").innerHTML = waktu.getSeconds();
+        }
+                             
+        function waktu_dapur(){
+            var waktu = new Date();
+            setTimeout("waktu_dapur()", 1);
+            document.getElementById("jam2").innerHTML = waktu.getMinutes();
+            document.getElementById("menit2").innerHTML = waktu.getSeconds();
         }
       </script>
 </body>
