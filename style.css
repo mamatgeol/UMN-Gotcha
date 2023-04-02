@@ -157,17 +157,15 @@ button {
 
 .jam-digital{
 	text-align: center;
+  display: inline-block;
 }
 	
 .kotak{
-	display: inline-block;
 	width: 50px;
-	height: 100px;
-}
-.jam-digital p{
-	font-size: 30px;
-	text-align: center;
-	margin-top: 100px;
-	font-family: cursive;
+	height: 50px;
 }
 
+.jam-digital p{
+	font-size: 30px;
+	font-family: cursive;
+}
