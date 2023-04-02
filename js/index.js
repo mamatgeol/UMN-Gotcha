@@ -13,3 +13,13 @@ startButton.addEventListener('click', () => {
         sessionStorage.setItem('selectedChar', 'char2');
     }
 });
+
+var progressBar = $("div.progress-bar");
+var x = 0;
+var increment = function() {
+  x = (x > 100) ? 0 : x + 1;
+  progressBar.css('width', (x % 100) + '%');
+};
+
+
+window.setInterval(increment, 50);
