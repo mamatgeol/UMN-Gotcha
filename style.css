@@ -159,18 +159,20 @@ button {
 	text-align: center;
   display: inline-block;
   border-radius: 4px;
-  background-color: rgb(48, 48, 48);
+  background-color: rgb(255, 255, 255);
+  outline: auto;
+  box-shadow: 5px 5px 0px 3px;
 }
 .kotak{
 	width: 50px;
 	height: 50px;
+  
 }
 .jam-digital p{
-  display: flex;
   justify-content: center;
   padding-top: 10px;
 	font-size: 20px;
-  color: white;
+  color: rgb(0, 0, 0);
 	font-family: cursive;
 }
 
