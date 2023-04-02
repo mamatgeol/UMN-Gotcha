@@ -27,7 +27,6 @@ footer {
 }
 
 .mainpage {
-  margin-top: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -80,6 +79,7 @@ footer {
 
 button {
   margin-top: 60px;
+  margin-bottom: 13px;
   width: 150px;
   height: 40px;
   border-radius: 5px;
@@ -93,7 +93,64 @@ button {
   box-shadow: 5px 5px 0px 3px;
 }
 
-img {
-    width: 100%;
-    height: auto;
+#tamu {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.char_tamu {
+  position: absolute;
+}
+
+.char_kamar {
+  padding-top: 350px;
+  width: 53px;
+  position: absolute;
+}
+
+#kamar {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: lightblue;
+}
+
+.char_dapur {
+  padding-top: 350px;
+  width: 53px;
+  position: absolute;
+}
+
+#dapur {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: lightblue;
+}
+
+.btn {
+  padding-top: 480px;
+  position: absolute;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: none;
+  z-index: 999;
+}
+
+.overlay.active {
+  display: block;
 }
