@@ -28,6 +28,26 @@
                             <center><img src="kamar/kamar_00000.png" style="width:90%"></center>
                         </div>
                         <div class="char_kamar">
+
+                            <div class="jam-digital">
+                                <div class="kotak">
+                                    <p id="jam1"></p>
+                                </div>
+                                <div class="kotak">
+                                    <p id="menit1"></p>
+                                </div>
+                            </div>
+                            <script>
+                                window.setTimeout("waktu_tamu()", 1000);
+                             
+                                function waktu_tamu() {
+                                    var waktu = new Date();
+                                    setTimeout("waktu_tamu()", 1);
+                                    document.getElementById("jam1").innerHTML = waktu.getMinutes();
+                                    document.getElementById("menit1").innerHTML = waktu.getSeconds();
+                                }
+                            </script>
+                            
                             <img src="char1/char1.gif" width="450px">
                         </div>
                         <div class="btn">
@@ -43,6 +63,26 @@
                             <center><img src="dapur/dapur_00000.png" style="width:90%"></center>
                         </div>
                         <div class="char_dapur">
+
+                            <div class="jam-digital">
+                                <div class="kotak">
+                                    <p id="jam2"></p>
+                                </div>
+                                <div class="kotak">
+                                    <p id="menit2"></p>
+                                </div>
+                            </div>
+                            <script>
+                                window.setTimeout("waktu_dapur()", 1000);
+                             
+                                function waktu_dapur() {
+                                    var waktu = new Date();
+                                    setTimeout("waktu_dapur()", 1);
+                                    document.getElementById("jam2").innerHTML = waktu.getMinutes();
+                                    document.getElementById("menit2").innerHTML = waktu.getSeconds();
+                                }
+                            </script>
+                            
                             <img src="char1/char1.gif" width="450px">
                         </div>
                         <div class="btn">
