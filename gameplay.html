@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>UMNGotcha | Gameplay</title>
+</head>
+<body>
+    <div class="mainpage">
+        <div class="main">
+            <div class="gameplay-container">
+                <div class="mySlides fade">
+                    <div id="tamu">
+                        <div class="ruang_tamu">
+                            <center><img src="ruang_tamu/ruang tamu_00000.png" style="width:90%"></center>
+                        </div>
+                        <div class="char_tamu">
+                            <img src="char1/char1.gif" width="700px">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div id="kamar">
+                        <div class="kamar">
+                            <center><img src="kamar/kamar_00000.png" style="width:90%"></center>
+                        </div>
+                        <div class="char_kamar">
+                            <img src="char1/char1.gif" width="450px">
+                        </div>
+                        <div class="btn">
+                            <button onclick="toggleOverlay()">TIDUR</button>
+                        </div>
+                        <div class="overlay" onclick="toggleOverlay()"></div>
+                    </div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div id="dapur">
+                        <div class="dapur">
+                            <center><img src="dapur/dapur_00000.png" style="width:90%"></center>
+                        </div>
+                        <div class="char_dapur">
+                            <img src="char1/char1.gif" width="450px">
+                        </div>
+                        <div class="btn">
+                            <button>MAKAN</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <a class="arr prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="arr next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+    
+        function plusSlides(n) {
+              showSlides(slideIndex += n);
+        }
+    
+        function currentSlide(n) {
+              showSlides(slideIndex = n);
+        }
+    
+        function showSlides(n) {
+              let i;
+              let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+          }
+          for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";
+          dots[slideIndex-1].className += " active";
+        }
+
+        function toggleOverlay() {
+            const overlay = document.querySelector('.overlay');
+            overlay.classList.toggle('active');
+        }
+      </script>
+</body>
+</html>
