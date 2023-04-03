@@ -27,7 +27,6 @@ footer {
 }
 
 .mainpage {
-  margin-top: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -165,4 +164,40 @@ img #dapur {
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none;
+}
+
+.main-bar {
+  position: absolute;
+  width: 400px;
+  background: white;
+  padding: 5px 20px;
+  box-shadow: 5px 5px 0px 3px;
+  outline: auto;
+}
+
+.main-bar .bar {
+  margin: 20px 0;
+}
+
+.main-bar .bar:first-child {
+  margin-top: 0;
+}
+
+.main-bar .bar .info span{
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.main-bar .bar .progress-bar{
+  position: relative;
+  height: 10px;
+  width: 100%;
+  background: #f0f0f0;
+}
+
+.bar .progress-bar span {
+  height: 100%;
+  width: 80%;
+  background: rgb(51, 51, 51);
+  position: absolute;
 }
