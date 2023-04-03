@@ -183,12 +183,12 @@ img #dapur {
   margin-top: 0;
 }
 
-.main-bar .bar .info span{
-  font-size: 15px;
+.main-bar .bar .info span {
+  font-size: 15px; 
   font-weight: 500;
 }
 
-.main-bar .bar .progress-bar{
+.main-bar .bar .progress-bar {
   position: relative;
   height: 10px;
   width: 100%;
