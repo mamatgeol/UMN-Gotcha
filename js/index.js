@@ -14,6 +14,7 @@ startButton.addEventListener('click', () => {
     }
 });
 
+<<<<<<< Updated upstream
 var progressBar = $("div.progress-bar");
 var x = 0;
 var increment = function() {
@@ -23,3 +24,7 @@ var increment = function() {
 
 
 window.setInterval(increment, 50);
+=======
+const params = new URLSearchParams(window.location.search);
+const nama = params.get('nama');
+>>>>>>> Stashed changes
