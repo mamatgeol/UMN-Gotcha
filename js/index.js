@@ -13,3 +13,4 @@ startButton.addEventListener('click', () => {
         sessionStorage.setItem('selectedChar', 'char2');
     }
 });
+
