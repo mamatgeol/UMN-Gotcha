@@ -54,7 +54,6 @@
                 <div class="mySlides fade">
                     <div id="tamu">
                         <div class="gameplay-container" style="user-select: none;">
-
                         </div>
                         <div class="ruang_tamu">
                             <center><img src="ruang_tamu/ruang tamu_00000.png" style="width:90%"></center>
@@ -62,34 +61,8 @@
                         <div class="char_tamu">
                             <img src="char1/char1.gif" width="700px">
                         </div>
-                        <div class="main-bar">
-                            <div class="bar">
-                                <div class="info">
-                                    <span>Makan</span>
-                                </div>
-                                <div class="progress-bar makan"><span></span></div>
-                            </div>
-                            <div class="bar">
-                                <div class="info">
-                                    <span>Main</span>
-                                </div>
-                                <div class="progress-bar"><span></span></div>
-                            </div>
-                            <div class="bar">
-                                <div class="info">
-                                    <span>Tidur</span>
-                                </div>
-                                <div class="progress-bar"><span></span></div>
-                            </div>
-                            <div class="bar">
-                                <div class="info">
-                                    <span>Obat</span>
-                                </div>
-                                <div class="progress-bar"><span></span></div>
-                            </div>
-                        </div>
                         <div class="btn">
-                            <button>MAIN</button>
+                            <button onclick="increaseMainBar()">MAIN</button>
                         </div>
                     </div>
                 </div>
@@ -105,36 +78,9 @@
                         <div class="char_kamar">
                             <img src="char1/char1.gif" width="450px">
                         </div>
-                        <div class="main-bar">
-                            <div class="bar">
-                                <div class="info">
-                                    <span>Makan</span>
-                                </div>
-                                <div class="progress-bar makan"><span></span></div>
-                            </div>
-                            <div class="bar">
-                                <div class="info">
-                                    <span>Main</span>
-                                </div>
-                                <div class="progress-bar"><span></span></div>
-                            </div>
-                            <div class="bar">
-                                <div class="info">
-                                    <span>Tidur</span>
-                                </div>
-                                <div class="progress-bar"><span></span></div>
-                            </div>
-                            <div class="bar">
-                                <div class="info">
-                                    <span>Obat</span>
-                                </div>
-                                <div class="progress-bar"><span></span></div>
-                            </div>
-                        </div>
                         <div class="btn">
-                            <button onclick="toggleOverlay()">TIDUR</button>
+                            <button onclick="sleep()">TIDUR</button>
                         </div>
-                        <div class="overlay" onclick="toggleOverlay()"></div>
                     </div>
                 </div>
 
@@ -146,36 +92,21 @@
                         <div class="char_dapur">
                             <img src="char1/char1.gif" width="450px">
                         </div>
-                        <div class="main-bar">
-                            <div class="bar">
-                                <div class="info">
-                                    <span>Makan</span>
-                                </div>
-                                <div class="progress-bar makan"><span></span></div>
-                            </div>
-                            <div class="bar">
-                                <div class="info">
-                                    <span>Main</span>
-                                </div>
-                                <div class="progress-bar"><span></span></div>
-                            </div>
-                            <div class="bar">
-                                <div class="info">
-                                    <span>Tidur</span>
-                                </div>
-                                <div class="progress-bar"><span></span></div>
-                            </div>
-                            <div class="bar">
-                                <div class="info">
-                                    <span>Obat</span>
-                                </div>
-                                <div class="progress-bar"><span></span></div>
-                            </div>
-                        </div>
                         <div class="btn">
-                            <button>MAKAN</button>
+                            <button onclick="increaseProgressBar('makan')">MAKAN</button>
+                            <button onclick="heal()">OBAT</button>
                         </div>
                     </div>
+                </div>
+                
+                <div class="progress-bar">
+                    <progress id="makanBar" value="50" max="100"></progress> Makan
+                    <br><br>
+                    <progress id="tidurBar" value="50" max="100"></progress> Tidur
+                    <br><br>
+                    <progress id="mainBar" value="50" max="100"></progress> Main
+                    <br><br>
+                    <progress id="obatBar" value="50" max="100"></progress> Obat
                 </div>
                 
                 <a class="arr prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -185,6 +116,7 @@
     </div>
 
     <script>
+        //slide
         let slideIndex = 1;
         showSlides(slideIndex);
     
@@ -212,13 +144,14 @@
           dots[slideIndex-1].className += " active";
         }
 
+        //sleepmode
         function toggleOverlay() {
             const overlay = document.querySelector('.overlay');
             overlay.classList.toggle('active');
         }
-        
-      </script>
-      <script>
+    </script>
+    <script>
+        //loader
         window.addEventListener("load", function() {
             const preloader = document.querySelector('.preloader');
             preloader.classList.add('hide');
@@ -226,9 +159,89 @@
                 preloader.style.display = 'none';
             }, 1000);
         });
-        </script>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-        <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+        function decreaseProgressBar() {
+            var progressBar = document.getElementById("progressBar");
+            var currentValue = progressBar.value;
+            var decrementValue = 2;
+            var newValue = currentValue - decrementValue;
+            if (newValue < 0) {
+            newValue = 0;
+            }
+            progressBar.value = newValue;
+        }
+        
+        setInterval(decreaseProgressBar, 2000);
+        
+        function increaseProgressBar() {
+            var progressBar = document.getElementById("progressBar");
+            var currentValue = progressBar.value;
+            var newValue = currentValue + 10;
+            if (newValue > 100) {
+            newValue = 100;
+            }
+            progressBar.value = newValue;
+        }
+    </script>
+    <script>
+        var makanBar = document.getElementById("makanBar");
+        var tidurBar = document.getElementById("tidurBar");
+        var mainBar = document.getElementById("mainBar");
+        var obatBar = document.getElementById("obatBar");
+        var interval = setInterval(reduceProgressBars, 5000);
+
+        function reduceProgressBars() {
+            makanBar.value -= makanBar.max * 0.02;
+            tidurBar.value -= tidurBar.max * 0.02;
+            mainBar.value -= mainBar.max * 0.02;
+            obatBar.value -= obatBar.max * 0.02;
+        }
+
+        function increaseProgressBar(barName) {
+            if (barName === "makan") {
+                makanBar.value += makanBar.max * 0.1;
+                if (makanBar.value > makanBar.max) {
+                makanBar.value = makanBar.max;
+                }
+            }
+        }
+
+        function increaseMainBar() {
+            mainBar.value += mainBar.max * 0.1;
+            if (mainBar.value > mainBar.max) {
+                mainBar.value = mainBar.max;
+            }
+            tidurBar.value -= tidurBar.max * 0.05;
+            if (tidurBar.value < 0) {
+                tidurBar.value = 0;
+            }
+            obatBar.value -= obatBar.max * 0.05;
+            if (obatBar.value < 0) {
+                obatBar.value = 0;
+            }
+        }
+
+        function sleep() {
+            tidurBar.value = tidurBar.max;
+            makanBar.value -= makanBar.max * 0.1;
+            if (makanBar.value < 0) {
+                makanBar.value = 0;
+            }
+            tidurBar.value -= tidurBar.max * 0.1;
+            if (tidurBar.value < 0) {
+                tidurBar.value = 0;
+            }
+        }
+
+        function heal() {
+            obatBar.value = obatBar.max;
+            tidurBar.value -= tidurBar.max * 0.2;
+            if (tidurBar.value < 0) {
+                tidurBar.value = 0;
+            }
+        }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 </body>
 </html>
