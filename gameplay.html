@@ -112,6 +112,7 @@
                 <div id="jam">
                     <h2>00:00</h2>
                 </div>
+                
                 <a class="arr prev" onclick="plusSlides(-1)">&#10094;</a>
                 <a class="arr next" onclick="plusSlides(1)">&#10095;</a>
             </div>
@@ -214,11 +215,11 @@
             if (mainBar.value > mainBar.max) {
                 mainBar.value = mainBar.max;
             }
-            tidurBar.value -= tidurBar.max * 0.05;
+            tidurBar.value -= tidurBar.max * 0.02;
             if (tidurBar.value < 0) {
                 tidurBar.value = 0;
             }
-            obatBar.value -= obatBar.max * 0.05;
+            obatBar.value -= obatBar.max * 0.02;
             if (obatBar.value < 0) {
                 obatBar.value = 0;
             }
