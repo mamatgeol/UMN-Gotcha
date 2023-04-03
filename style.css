@@ -182,7 +182,13 @@ progress {
 
 #jam {
   position: absolute;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 600;
   font-size: 25px;
   margin-left: 1200px;
+  padding: 10px;
+  border-radius: 15px;
+  border: 5px solid rgba(84, 126, 255, 0.4);
+  background-color: black;
+  color: white;
 }
