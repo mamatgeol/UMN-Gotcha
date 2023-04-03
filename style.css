@@ -27,6 +27,7 @@ footer {
 }
 
 .mainpage {
+  margin-top: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -79,7 +80,6 @@ footer {
 
 button {
   margin-top: 60px;
-  margin-bottom: 13px;
   width: 150px;
   height: 40px;
   border-radius: 5px;
@@ -91,6 +91,11 @@ button {
   font-size: 1em;
   font-weight: 600;
   box-shadow: 5px 5px 0px 3px;
+}
+
+img #dapur {
+    width: 100%;
+    height: auto;
 }
 
 #tamu {
@@ -153,4 +158,11 @@ button {
 
 .overlay.active {
   display: block;
+}
+
+.gameplay-container {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
 }
