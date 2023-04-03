@@ -79,7 +79,8 @@ footer {
 
 button {
   margin-top: 60px;
-  margin-bottom: 13px;
+  margin-left: 10px;
+  margin-right: 10px;
   width: 150px;
   height: 40px;
   border-radius: 5px;
@@ -91,6 +92,11 @@ button {
   font-size: 1em;
   font-weight: 600;
   box-shadow: 5px 5px 0px 3px;
+}
+
+img #dapur {
+    width: 100%;
+    height: auto;
 }
 
 #tamu {
@@ -155,24 +161,28 @@ button {
   display: block;
 }
 
-.jam-digital{
-	text-align: center;
-  display: inline-block;
-  border-radius: 4px;
-  background-color: rgb(255, 255, 255);
-  outline: auto;
-  box-shadow: 5px 5px 0px 3px;
-}
-.kotak{
-	width: 50px;
-	height: 50px;
-  
-}
-.jam-digital p{
-  justify-content: center;
-  padding-top: 10px;
-	font-size: 20px;
-  color: rgb(0, 0, 0);
-	font-family: cursive;
+.gameplay-container {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
 }
 
+.progress-bar {
+  position: absolute;
+  font-weight: 600;
+}
+
+progress {
+  width: 300px;
+  height: 20px;
+  outline: auto;
+  border-radius: 1px;
+}
+
+#jam {
+  position: absolute;
+  font-weight: 600;
+  font-size: 25px;
+  margin-left: 1200px;
+}

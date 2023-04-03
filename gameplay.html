@@ -6,47 +6,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>UMNGotcha | Gameplay</title>
+    <style>
+        .preloader {
+            display: block;
+            position: fixed;
+            z-index: 99999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+        }
+    
+        .preloader .loader {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -50px 0 0 -50px;
+            width: 80px;
+            height: 80px;
+            border: 8px solid #ccc;
+            border-top-color: #555;
+            border-radius: 100%;
+            animation: spin 1s infinite linear;
+        }
+    
+        @keyframes spin {
+            to {transform: rotate(360deg);}
+        }
+    </style>
 </head>
 <body>
+    <div class="preloader">
+        <div class="loader"></div>
+    </div>
+
     <div class="mainpage">
         <div class="main">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="progress progress-striped active">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 0%;transition-duration:50ms;">
+                    </div>
+                </div>
+            </div>
             <div class="gameplay-container">
                 <div class="mySlides fade">
                     <div id="tamu">
+                        <div class="gameplay-container" style="user-select: none;">
+                        </div>
                         <div class="ruang_tamu">
                             <center><img src="ruang_tamu/ruang tamu_00000.png" style="width:90%"></center>
                         </div>
                         <div class="char_tamu">
                             <img src="char1/char1.gif" width="700px">
                         </div>
+                        <div class="btn">
+                            <button onclick="increaseMainBar()">MAIN</button>
+                        </div>
                     </div>
                 </div>
-            </div>
+
                 <div class="mySlides fade">
                     <div id="kamar">
+                        <div class="gameplay-container" style="user-select: none;">
+                            
+                        </div>
                         <div class="kamar">
                             <center><img src="kamar/kamar_00000.png" style="width:90%"></center>
                         </div>
                         <div class="char_kamar">
-
-                            <div class="jam-digital">
-                                <div class="kotak">
-                                    <p id="jam1"></p>
-                                </div>
-                                <div class="kotak">
-                                    <p id="menit1"></p>
-                                </div>
-                            </div>
-
-                            <script>
-                                window.setTimeout("waktu_tamu()", 1000);
-                            </script>
                             <img src="char1/char1.gif" width="450px">
                         </div>
                         <div class="btn">
-                            <button onclick="toggleOverlay()">TIDUR</button>
+                            <button onclick="sleep()">TIDUR</button>
                         </div>
-                        <div class="overlay" onclick="toggleOverlay()"></div>
                     </div>
                 </div>
 
@@ -56,31 +90,36 @@
                             <center><img src="dapur/dapur_00000.png" style="width:90%"></center>
                         </div>
                         <div class="char_dapur">
-
-                            <div class="jam-digital">
-                                <div class="kotak">
-                                    <p id="jam2"></p>
-                                </div>
-                                <div class="kotak">
-                                    <p id="menit2"></p>
-                                </div>
-                            </div>
-                            <script>
-                                window.setTimeout("waktu_dapur()", 1000);   
-                            </script>
                             <img src="char1/char1.gif" width="450px">
                         </div>
                         <div class="btn">
-                            <button>MAKAN</button>
+                            <button onclick="increaseProgressBar('makan')">MAKAN</button>
+                            <button onclick="heal()">OBAT</button>
                         </div>
                     </div>
+                </div>
+                
+                <div class="progress-bar">
+                    <progress id="makanBar" value="50" max="100"></progress> Makan
+                    <br><br>
+                    <progress id="tidurBar" value="50" max="100"></progress> Tidur
+                    <br><br>
+                    <progress id="mainBar" value="50" max="100"></progress> Main
+                    <br><br>
+                    <progress id="obatBar" value="50" max="100"></progress> Obat
+                </div>
+
+                <div id="jam">
+                    <h2>00:00</h2>
                 </div>
                 <a class="arr prev" onclick="plusSlides(-1)">&#10094;</a>
                 <a class="arr next" onclick="plusSlides(1)">&#10095;</a>
             </div>
         </div>
+    </div>
 
     <script>
+        //slide
         let slideIndex = 1;
         showSlides(slideIndex);
     
@@ -108,24 +147,126 @@
           dots[slideIndex-1].className += " active";
         }
 
+        //sleepmode
         function toggleOverlay() {
             const overlay = document.querySelector('.overlay');
             overlay.classList.toggle('active');
-        }         
+        }
+    </script>
+    <script>
+        //loader
+        window.addEventListener("load", function() {
+            const preloader = document.querySelector('.preloader');
+            preloader.classList.add('hide');
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 1000);
+        });
+
+        function decreaseProgressBar() {
+            var progressBar = document.getElementById("progressBar");
+            var currentValue = progressBar.value;
+            var decrementValue = 2;
+            var newValue = currentValue - decrementValue;
+            if (newValue < 0) {
+            newValue = 0;
+            }
+            progressBar.value = newValue;
+        }
         
-        function waktu_tamu() {
-            var waktu = new Date();
-            setTimeout("waktu_tamu()", 1);
-            document.getElementById("jam1").innerHTML = waktu.getMinutes();
-            document.getElementById("menit1").innerHTML = waktu.getSeconds();
+        setInterval(decreaseProgressBar, 2000);
+        
+        function increaseProgressBar() {
+            var progressBar = document.getElementById("progressBar");
+            var currentValue = progressBar.value;
+            var newValue = currentValue + 10;
+            if (newValue > 100) {
+            newValue = 100;
+            }
+            progressBar.value = newValue;
         }
-                             
-        function waktu_dapur(){
-            var waktu = new Date();
-            setTimeout("waktu_dapur()", 1);
-            document.getElementById("jam2").innerHTML = waktu.getMinutes();
-            document.getElementById("menit2").innerHTML = waktu.getSeconds();
+    </script>
+    <script>
+        var makanBar = document.getElementById("makanBar");
+        var tidurBar = document.getElementById("tidurBar");
+        var mainBar = document.getElementById("mainBar");
+        var obatBar = document.getElementById("obatBar");
+        var interval = setInterval(reduceProgressBars, 5000);
+
+        function reduceProgressBars() {
+            makanBar.value -= makanBar.max * 0.02;
+            tidurBar.value -= tidurBar.max * 0.02;
+            mainBar.value -= mainBar.max * 0.02;
+            obatBar.value -= obatBar.max * 0.02;
         }
-      </script>
+
+        function increaseProgressBar(barName) {
+            if (barName === "makan") {
+                makanBar.value += makanBar.max * 0.1;
+                if (makanBar.value > makanBar.max) {
+                makanBar.value = makanBar.max;
+                }
+            }
+        }
+
+        function increaseMainBar() {
+            mainBar.value += mainBar.max * 0.1;
+            if (mainBar.value > mainBar.max) {
+                mainBar.value = mainBar.max;
+            }
+            tidurBar.value -= tidurBar.max * 0.05;
+            if (tidurBar.value < 0) {
+                tidurBar.value = 0;
+            }
+            obatBar.value -= obatBar.max * 0.05;
+            if (obatBar.value < 0) {
+                obatBar.value = 0;
+            }
+        }
+
+        function sleep() {
+            tidurBar.value = tidurBar.max;
+            makanBar.value -= makanBar.max * 0.1;
+            if (makanBar.value < 0) {
+                makanBar.value = 0;
+            }
+            tidurBar.value -= tidurBar.max * 0.1;
+            if (tidurBar.value < 0) {
+                tidurBar.value = 0;
+            }
+        }
+
+        function heal() {
+            obatBar.value = obatBar.max;
+            tidurBar.value -= tidurBar.max * 0.2;
+            if (tidurBar.value < 0) {
+                tidurBar.value = 0;
+            }
+        }
+    </script>
+
+    <script>
+        var jamElement = document.getElementById("jam");
+
+        var jam = 0;
+        var menit = 0;
+
+        setInterval(function() {
+        menit += 30;
+        if (menit >= 60) {
+            menit = 0;
+            jam += 1;
+        }
+        if (jam >= 24) {
+            jam = 0;
+        }
+
+        var jamStr = jam < 10 ? "0" + jam : jam;
+        var menitStr = menit < 10 ? "0" + menit : menit;
+        jamElement.textContent = jamStr + ":" + menitStr;
+        }, 1000);
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 </body>
 </html>
