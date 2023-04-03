@@ -204,5 +204,16 @@ progress {
   padding-left: 25px;
   border-radius: 5px;
   border: 3px solid rgba(0, 0, 0, 0.4);
-  background-color: rgb(78, 78, 78);
+  background-color: rgb(133, 133, 133);
+}
+
+#level-container {
+  padding-left: 25px;
+  color: black;
+  font-weight: 600;
+  font-size: 60px;
+}
+
+.lvl {
+  display: none;
 }
