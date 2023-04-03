@@ -179,3 +179,10 @@ progress {
   outline: auto;
   border-radius: 1px;
 }
+
+#jam {
+  position: absolute;
+  font-weight: 600;
+  font-size: 25px;
+  margin-left: 1200px;
+}
